@@ -119,7 +119,7 @@ class Digit(pygame.sprite.Sprite):  # спрайты для выведения �
 
 
 # начало программы
-window = pygame.display.set_mode((607, 704))
+window = pygame.display.set_mode((600, 700))
 pygame.display.set_caption("Сапёр")
 gr_kletka = pygame.sprite.Group()  # создаём группу класса Kletka(квадраты закрывающие цифры)
 gr_sign = pygame.sprite.Group()  # создаём группу класса Sign(изображения цифр и бомб)
@@ -187,10 +187,10 @@ while True:
 
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if ev.button == pygame.BUTTON_RIGHT:
-                if btn1.win == 1 and 23 < pygame.mouse.get_pos()[0] < 583 and 120 < pygame.mouse.get_pos()[
-                    1] < 680:  # если идёт игра, кликнули по клетке
+                if btn1.win == 1 and 23 < pygame.mouse.get_pos()[0] < 583 and 120 < pygame.mouse.get_pos()[1] < 680:
+                    # если идёт игра, кликнули по клетке
                     coord = (pygame.mouse.get_pos()[1] - 120) // 35, (
-                                pygame.mouse.get_pos()[0] - 23) // 35  # ловим координаты нажатия
+                            pygame.mouse.get_pos()[0] - 23) // 35  # ловим координаты нажатия
                     if massive_kletki[(pygame.mouse.get_pos()[1] - 120) // 35][
                         (pygame.mouse.get_pos()[0] - 23) // 35] == 0:  # если она закрыта
                         for kl in gr_kletka:  # уничтожаем серую клетку, ставим новую с флагом или вопросом
@@ -225,7 +225,7 @@ while True:
                                 if massive[(pygame.mouse.get_pos()[1] - 120) // 35][(pygame.mouse.get_pos()[
                                                                                          0] - 23) // 35] == 0:  # если стоит ноль, открываем соседние поля
                                     coord = (pygame.mouse.get_pos()[1] - 120) // 35, (
-                                                pygame.mouse.get_pos()[0] - 23) // 35
+                                            pygame.mouse.get_pos()[0] - 23) // 35
                                     for i in range(coord[0] - 1, coord[0] + 2):
                                         for j in range(coord[1] - 1, coord[1] + 2):
                                             for kl in gr_kletka:
@@ -239,8 +239,7 @@ while True:
                                         finded = False
                                         for i in range(stroki):
                                             for j in range(stolb):
-                                                if massive_kletki[i][j] == 1 and massive[i][j] == 0 and massive_test[i][
-                                                    j] == 0:
+                                                if massive_kletki[i][j] == 1 and massive[i][j] == 0 and massive_test[i][j] == 0:
                                                     finded = True
                                                     for m in range(i - 1, i + 2):
                                                         for n in range(j - 1, j + 2):
@@ -293,8 +292,7 @@ while True:
                         btn1.image = pygame.image.load("btn4.png").convert()
                         btn1.state = 1  # меняем на нажатый смайл
     if timer:  # если таймер идёт
-        second = str((pygame.time.get_ticks() - start) // 1000).zfill(
-            3)  # получаем время в виде строки с начальными нулями
+        second = str((pygame.time.get_ticks() - start) // 1000).zfill(3)  # получаем время в виде строки с начальными нулями
     window.blit(background, (0, 0))
     gr_sign.draw(window)
     gr_kletka.draw(window)
