@@ -1,10 +1,12 @@
-from time import sleep
 import pygame
 import pygame_menu
 from pygame_menu import themes
 
 pygame.init()
-surface = pygame.display.set_mode((600, 400))
+window = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("Сапёр")
+pygame.mixer.music.load("data/fon_music.mp3")
+pygame.mixer.music.play(-1)
 
 
 def set_difficulty(value, difficulty):
@@ -13,7 +15,8 @@ def set_difficulty(value, difficulty):
 
 
 def start_the_game():
-    pass
+    from main import new_game
+    mainmenu._open(new_game)
 
 
 def level_menu():
@@ -31,11 +34,16 @@ mainmenu.add.button('Уровни', level_menu)
 mainmenu.add.button('Об игре и её правила', pravila_menu)
 mainmenu.add.button('Выход из игры', pygame_menu.events.EXIT)
 
-level = pygame_menu.Menu('Выберите сложность: ', 600, 400, theme=themes.THEME_BLUE)
-level.add.selector('Сложность :', [('Сложно', 1), ('Легко', 2)], onchange=set_difficulty)
+level = pygame_menu.Menu('Все уровни генерируются', 600, 400, theme=themes.THEME_BLUE)
+level.add.selector('Сложность :', [('Как повезёт', 1), ('Как повезёт', 2)], onchange=set_difficulty)
 
 pravila = pygame_menu.Menu('Об игре и её правила', 600, 400, theme=themes.THEME_BLUE)
-pravila.add.text('igyu')
+pravila.add.text_input("Невежда так же в ослепленье")
+pravila.add.text_input("Невежда так же в ослепленье")
+pravila.add.text_input("Невежда так же в ослепленье")
+pravila.add.text_input("Невежда так же в ослепленье")
+pravila.add.text_input("Невежда так же в ослепленье")
+pravila.add.text_input("нужно как то нормально выводить простой текст(")
 
 
 while True:
@@ -46,6 +54,6 @@ while True:
 
     if mainmenu.is_enabled():
         mainmenu.update(events)
-        mainmenu.draw(surface)
+        mainmenu.draw(window)
 
     pygame.display.update()

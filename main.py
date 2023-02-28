@@ -21,8 +21,8 @@ def new_game(count_bombs):  # создание новой игры
                       range(stroki)]  # матрица для хранения информации о закрытых или открытых клетках
     massive_test = [[0 for i in range(stolb)] for j in
                     range(stroki)]  # матрица для хранения информации о клетках неприлегающих к бомбам
-    finded = False
     timer = False  # запустить или не запустить часы
+    finded = False
     second = "000"  # начальное значение часов
     for y in coordinat:  # заполняем массив бомбами из списка coordinat
         massive[int(y[0])][int(y[1])] = 9
@@ -189,6 +189,8 @@ while True:
 
         if ev.type == pygame.MOUSEBUTTONDOWN:
             if ev.button == pygame.BUTTON_RIGHT:
+                r_klik = pygame.mixer.Sound("data/klik.ogg")
+                r_klik.play()
                 if btn1.win == 1 and 23 < pygame.mouse.get_pos()[0] < 583 and 120 < pygame.mouse.get_pos()[1] < 680:
                     # если идёт игра, кликнули по клетке
                     coord = (pygame.mouse.get_pos()[1] - 120) // 35, (
@@ -211,8 +213,8 @@ while True:
                             gr_kletka.add(Kletka((coord[1] * 35 + 23, coord[0] * 35 + 120), "data/kletka1.png",
                                                  0))  # ставим обычную клетку
             if ev.button == pygame.BUTTON_LEFT:  # нажатие левой кнопки мыши
-                klik = pygame.mixer.Sound("data/klik.ogg")
-                klik.play()
+                l_klik = pygame.mixer.Sound("data/klik.ogg")
+                l_klik.play()
                 press = True  # запомнить что кнопка нажата
                 if btn1.win == 1:  # если идёт игра
                     if btn1.rect.collidepoint(pygame.mouse.get_pos()):  # если попали по большой кнопке
@@ -243,8 +245,7 @@ while True:
                                         finded = False
                                         for i in range(stroki):
                                             for j in range(stolb):
-                                                if massive_kletki[i][j] == 1 and massive[i][j] == 0 and massive_test[i][
-                                                    j] == 0:
+                                                if massive_kletki[i][j] == 1 and massive[i][j] == 0 and massive_test[i][j] == 0:
                                                     finded = True
                                                     for m in range(i - 1, i + 2):
                                                         for n in range(j - 1, j + 2):
@@ -254,7 +255,6 @@ while True:
                                                             if 0 <= m < 16 and 0 <= n < 16:
                                                                 massive_kletki[m][n] = 1
                                                                 massive_test[i][j] = 1
-
                                     sum_flag = 0
                                     for x in gr_kletka:  # подсчёт кол-вa установленых флагов
                                         if x.state == 1:
