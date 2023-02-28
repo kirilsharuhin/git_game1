@@ -64,7 +64,6 @@ def new_game(count_bombs):  # создание новой игры
     return massive_kletki, massive, massive_test, count_bombs, timer, second
 
 
-
 class Kletka(pygame.sprite.Sprite):  # спрайты, покрывающие поле поверх цифр
     def __init__(self, coord, picture, state):
         super().__init__()

@@ -13,35 +13,34 @@ def set_difficulty(value, difficulty):
 
 
 def start_the_game():
-    mainmenu._open(loading)
-    pygame.time.set_timer(update_loading, 30)
+    pass
 
 
 def level_menu():
     mainmenu._open(level)
 
 
+def pravila_menu():
+    mainmenu._open(pravila)
+
+
 mainmenu = pygame_menu.Menu('САПЁР', 600, 400, theme=themes.THEME_SOLARIZED)
-mainmenu.add.text_input('Введите никнейм: ', default='новый_игрок')
+mainmenu.add.text_input('Введите никнейм: ', default='unknown')
 mainmenu.add.button('Играть', start_the_game)
 mainmenu.add.button('Уровни', level_menu)
+mainmenu.add.button('Об игре и её правила', pravila_menu)
 mainmenu.add.button('Выход из игры', pygame_menu.events.EXIT)
 
-level = pygame_menu.Menu('Select a Difficulty', 600, 400, theme=themes.THEME_BLUE)
+level = pygame_menu.Menu('Выберите сложность: ', 600, 400, theme=themes.THEME_BLUE)
 level.add.selector('Сложность :', [('Сложно', 1), ('Легко', 2)], onchange=set_difficulty)
 
-loading = pygame_menu.Menu('Загрузка игры...', 600, 400, theme=themes.THEME_DARK)
+pravila = pygame_menu.Menu('Об игре и её правила', 600, 400, theme=themes.THEME_BLUE)
+pravila.add.text('igyu')
 
-update_loading = pygame.USEREVENT + 0
 
 while True:
     events = pygame.event.get()
     for event in events:
-        if event.type == update_loading:
-            progress = loading.get_widget("1")
-            progress.set_value(progress.get_value() + 1)
-            if progress.get_value() == 100:
-                pygame.time.set_timer(update_loading, 0)
         if event.type == pygame.QUIT:
             exit()
 
