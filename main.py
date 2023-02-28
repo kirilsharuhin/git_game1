@@ -228,8 +228,8 @@ while True:
                             if kl.state == 0:  # если клетка серая
                                 massive_kletki[(pygame.mouse.get_pos()[1] - 120) // 35][
                                     (pygame.mouse.get_pos()[0] - 23) // 35] = 1  # говорим, что она открыта
-                                if massive[(pygame.mouse.get_pos()[1] - 120) // 35][(pygame.mouse.get_pos()[
-                                                                                         0] - 23) // 35] == 0:  # если стоит ноль, открываем соседние поля
+                                if massive[(pygame.mouse.get_pos()[1] - 120) // 35][(pygame.mouse.get_pos()[0] - 23) // 35] == 0:
+                                # если стоит ноль, открываем соседние поля
                                     coord = (pygame.mouse.get_pos()[1] - 120) // 35, (
                                             pygame.mouse.get_pos()[0] - 23) // 35
                                     for i in range(coord[0] - 1, coord[0] + 2):
