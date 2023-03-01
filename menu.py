@@ -14,7 +14,7 @@ vertical_borders = pygame.sprite.Group()
 size = width, height = 600, 400
 
 
-class Ball(pygame.sprite.Sprite):  # с этого момента до функции set_difficulty - шарики
+class Ball(pygame.sprite.Sprite):  # с этого момента до функции set_difficulty - шары для фона
     def __init__(self, radius, x, y):
         super().__init__(all_sprites)
         self.radius = radius
