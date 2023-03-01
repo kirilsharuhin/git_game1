@@ -6,16 +6,15 @@ import random
 pygame.init()
 window = pygame.display.set_mode((600, 400))
 pygame.display.set_caption("Сапёр")
-pygame.mixer.music.load("data/fon_music.mp3")
+pygame.mixer.music.load("data/fon_menu.mp3")
 pygame.mixer.music.play(-1)
-
 all_sprites = pygame.sprite.Group()
 horizontal_borders = pygame.sprite.Group()
 vertical_borders = pygame.sprite.Group()
 size = width, height = 600, 400
 
 
-class Ball(pygame.sprite.Sprite):  # с этого момента до
+class Ball(pygame.sprite.Sprite):  # с этого момента до функции set_difficulty - шарики
     def __init__(self, radius, x, y):
         super().__init__(all_sprites)
         self.radius = radius
@@ -84,10 +83,10 @@ mainmenu.add.button('Об игре и её правилах', pravila_menu)
 mainmenu.add.button('Выход из игры', pygame_menu.events.EXIT)
 
 level = pygame_menu.Menu('Все уровни генерируются', 600, 400, theme=themes.THEME_BLUE)
-level.add.selector('Сложность :', [('Как повезёт', 1), ('Как повезёт', 2)], onchange=set_difficulty)
+level.add.selector('Сложность :', [('Как повезёт', 1), ('Как повезёт', 1)], onchange=set_difficulty)
 
 pravila = pygame_menu.Menu('Об игре и её правилах', 600, 400, theme=themes.THEME_BLUE)
-pravila.add.text_input("можете прочитать, введя ссылку в Гугл")
+pravila.add.text_input("можете прочитать, введя ссылку в Гугл:")
 pravila.add.text_input("https://ru.wikipedia.org/wiki/Сапёр_(игра)")
 
 while True:
