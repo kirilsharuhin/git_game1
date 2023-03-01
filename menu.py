@@ -53,7 +53,7 @@ Border(0, height - 0, width - 0, height - 0)
 Border(0, 0, 0, height - 0)
 Border(width - 0, 0, width - 0, height - 0)
 
-for i in range(15):
+for i in range(13):
     Ball(2, 350, 200)
 
 
