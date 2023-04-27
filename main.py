@@ -599,7 +599,7 @@ async def aa(update, context):
                                             reply_markup=markup3)
             await update.message.reply_text("Желаю Вам всего хорошего!!!")
             await update.message.reply_text("Надеюсь, Вам понравился бот!!!")
-    o.clear()
+    oo.clear()
 
 
 async def bb(update, context):
@@ -709,7 +709,7 @@ async def bb(update, context):
                                             reply_markup=markup3)
             await update.message.reply_text("Желаю Вам всего хорошего!!!")
             await update.message.reply_text("Надеюсь, Вам понравился бот!!!")
-    o.clear()
+    oo.clear()
 
 
 async def cc(update, context):
@@ -819,7 +819,7 @@ async def cc(update, context):
                                             reply_markup=markup3)
             await update.message.reply_text("Желаю Вам всего хорошего!!!")
             await update.message.reply_text("Надеюсь, Вам понравился бот!!!")
-    o.clear()
+    oo.clear()
 
 
 async def dd(update, context):
@@ -929,7 +929,7 @@ async def dd(update, context):
                                             reply_markup=markup3)
             await update.message.reply_text("Желаю Вам всего хорошего!!!")
             await update.message.reply_text("Надеюсь, Вам понравился бот!!!")
-    o.clear()
+    oo.clear()
 
 
 def main():
