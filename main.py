@@ -2,7 +2,6 @@ import logging
 from telegram.ext import Application, MessageHandler, filters, CommandHandler
 from telegram import ReplyKeyboardMarkup
 
-# Запускаем логгирование
 TOKEN = '6109988943:AAFdpBUb15CycWkzzWLZMwSdqTT2F9afiJI'
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.DEBUG
