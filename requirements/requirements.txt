@@ -1,6 +1,4 @@
+telebot==0.0.5
+telegram==0.0.1
+python-telegram-bot-api==0.0.7
 pip==21.3.1
-pytz==2022.7.1
-python==>=3.7,<3.8
-pygame-menu==4.3.8
-pygame==2.1.2
-themes==0,04
